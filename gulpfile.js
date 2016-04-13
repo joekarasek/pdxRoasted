@@ -5,18 +5,6 @@ var gulp = require('gulp');
 // used for concatenating/minifying bower files and other js/css
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-// used for pulling in bower files.
-var lib = require('bower-files')({
-  "overrides":{
-    "bootstrap" : {
-      "main": [
-        "less/bootstrap.less",
-        "dist/css/bootstrap.css",
-        "dist/js/bootstrap.js"
-      ]
-    }
-  }
-});
 
 // used for build and clean tasks.
 var utilities = require('gulp-util');
@@ -45,36 +33,6 @@ gulp.task('ts', ['tsClean'], shell.task([
   'tsc'
 ]));
 
-////////////////////// BOWER //////////////////////
-// when adding a new bower depndency:
-// stop the server
-// always use the `bower install --save` flag.
-// run `gulp bower` to build vendor files
-// restart server.
-
-gulp.task('jsBowerClean', function(){
-  return del(['./build/js/vendor.min.js']);
-});
-
-gulp.task('jsBower', ['jsBowerClean'], function() {
-  return gulp.src(lib.ext('js').files)
-    .pipe(concat('vendor.min.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest('./build/js'));
-});
-
-gulp.task('cssBowerClean', function(){
-  return del(['./build/css/vendor.css']);
-});
-
-gulp.task('cssBower', ['cssBowerClean'], function() {
-  return gulp.src(lib.ext('css').files)
-    .pipe(concat('vendor.css'))
-    .pipe(gulp.dest('./build/css'));
-});
-
-gulp.task('bower', ['jsBower', 'cssBower']);
-
 ////////////////////// SASS //////////////////////
 
 gulp.task('sassBuild', function() {
@@ -87,7 +45,7 @@ gulp.task('sassBuild', function() {
 
 ////////////////////// SERVER //////////////////////
 
-gulp.task('serve', function() {
+gulp.task('default', function() {
   browserSync.init({
     server: {
       baseDir: "./",
@@ -120,25 +78,5 @@ gulp.task('tsBuild', ['ts'], function(){
 
 // global build task with individual clean tasks as dependencies.
 gulp.task('build', ['ts'], function(){
-  // we can use the buildProduction environment variable here later.
-  gulp.start('bower');
   gulp.start('sassBuild');
 });
-
-////////////////////// SETUP NOTES //////////////////////
-
-/*
-- clone repo
-- npm install
-- bower install
-- install globals if needed (gulp, bower, sass, typescript, typescript packages.)
-  - npm install gulp -g
-  - npm install bower -g
-  - gem install sass
-  - npm install typescript -g
-  - apm install atom-typescript
-  - apm install file-icons
-  - apm install git-hide
-- gulp build
-- gulp serve
-*/
