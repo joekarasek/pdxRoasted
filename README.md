@@ -5,7 +5,7 @@ Stay tuned ;)
 
 -pdxRoasted team
 
-## Instructions to run:
+Instructions to run
 1. clone
 2. `npm install`
 3. `gulp`
