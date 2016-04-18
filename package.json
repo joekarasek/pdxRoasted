@@ -1,5 +1,5 @@
 {
-  "name": "PDX Roasted",
+  "name": "pdxRoasted",
   "version": "0.0.1",
   "scripts": {
     "start": "npm run tsc:w",
