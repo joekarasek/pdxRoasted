@@ -45,7 +45,7 @@ gulp.task('sassBuild', function() {
 
 ////////////////////// SERVER //////////////////////
 
-gulp.task('default', function() {
+gulp.task('default', ['build'], function() {
   browserSync.init({
     server: {
       baseDir: "./",
