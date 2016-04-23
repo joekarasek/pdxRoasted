@@ -2,8 +2,6 @@
   <head>
     <title>Start</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="build/js/vendor.min.js"></script>
-    <link rel="stylesheet" href="build/css/vendor.css">
 
     <!-- 1. Load libraries -->
     <!-- IE required polyfills, in this exact order -->
@@ -25,14 +23,17 @@
   </body>
   <!-- 2. Configure SystemJS -->
   <script>
-    System.config({
-      packages: {
-        app: {
-          format: 'register',
-          defaultExtension: 'js'
-        }
+  System.config({
+    map: {
+      firebase: 'firebase/lib/firebase-web.js',
+    },
+    packages: {
+      app: {
+        format: 'register',
+        defaultExtension: 'js'
       }
-    });
+    }
+  });
     System.import('app/main')
           .then(null, console.error.bind(console));
   </script>
