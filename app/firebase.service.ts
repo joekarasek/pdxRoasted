@@ -1,7 +1,7 @@
 import { Injectable } from 'angular2/core';
-import { Http } from 'angular2/http';
+import { Http, Response } from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
-import 'rxjs/Rx';
+
 
 @Injectable()
 export class FirebaseService {
@@ -11,8 +11,15 @@ export class FirebaseService {
   private _url = 'https://pdxroasted.firebaseio.com/roasts';
 
   getRoasts() {
-    return this._http.get('https://pdxroasted.firebaseio.com/roasts')
-      .map(response => response.json());
+    return this._http.get('https://pdxroasted.firebaseio.com/Roasts.json')
+               .map(response => response.json())
+               .catch(this.handleError);
+  }
+
+  private handleError (error: any) {
+    let errMsg = error.message || 'Server error';
+    console.log(errMsg);
+    return Observable.throw(errMsg);
   }
 
 }

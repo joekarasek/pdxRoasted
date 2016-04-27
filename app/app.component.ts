@@ -1,14 +1,19 @@
-import { Component } from 'angular2/core';
-import {OnInit} from 'angular2/core';
-import { HTTP_PROVIDERS }  from 'angular2/http';
+import { Component, OnInit } from 'angular2/core';
+
+import { HTTP_PROVIDERS } from 'angular2/http';
+
 import { FirebaseService } from './firebase.service';
 
 @Component({
   selector: 'my-app',
   template: `
       <h1>Hello, Angular2!</h1>
+      <p>{{response}}<p>
   `,
-  providers: [HTTP_PROVIDERS, FirebaseService]
+  providers: [
+    HTTP_PROVIDERS,
+    FirebaseService
+  ]
 })
 export class AppComponent implements OnInit {
   response: string;
@@ -17,14 +22,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
       this.getRoasts();
+      console.log(this.response);
   }
 
    getRoasts() {
       this._firebaseService.getRoasts()
-        .subscribe(
-          roasts => this.response = JSON.stringify(roasts),
-          error => console.log(error)
-        );
+          .subscribe(
+            roasts => this.response = JSON.stringify(roasts),
+            error => console.log(error));
    }
 
 
