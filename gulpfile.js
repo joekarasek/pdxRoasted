@@ -1,14 +1,8 @@
 ////////////////////// DEPENDENCIES AND VARIABLES //////////////////////
-
 var gulp = require('gulp');
-
-// used for concatenating/minifying bower files and other js/css
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
 
 // used for build and clean tasks.
 var utilities = require('gulp-util');
-var buildProduction = utilities.env.production;
 var del = require('del');
 
 // set up server with watchers and run typescript compiler in the shell.
@@ -18,6 +12,7 @@ var shell = require('gulp-shell');
 // sass dependencies.
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
+var autoprefixer = require('gulp-autoprefixer');
 
 
 
@@ -40,12 +35,13 @@ gulp.task('sassBuild', function() {
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(sourcemaps.write())
+    .pipe(autoprefixer())
     .pipe(gulp.dest('./build/css'));
 });
 
 ////////////////////// SERVER //////////////////////
 
-gulp.task('default', ['build'], function() {
+gulp.task('default', ['ts', 'sassBuild'], function() {
   browserSync.init({
     server: {
       baseDir: "./",
@@ -57,9 +53,6 @@ gulp.task('default', ['build'], function() {
   gulp.watch(['app/*.ts'], ['tsBuild']); // typescript files change, compile then reload.
 });
 
-gulp.task('jsBuild', function(){
-  browserSync.reload();
-});
 
 gulp.task('htmlBuild', function(){
   browserSync.reload();
@@ -76,6 +69,10 @@ gulp.task('tsBuild', ['ts'], function(){
 ////////////////////// GLOBAL BUILD TASK //////////////////////
 
 // global build task with individual clean tasks as dependencies.
-gulp.task('build', ['ts'], function(){
-  gulp.start('sassBuild');
+gulp.task('prod', ['ts'], function(){
+  return gulp
+    .src(['resources/styles/*'])
+    .pipe(sass({ outputStyle: 'compressed' }))
+    .pipe(autoprefixer())
+    .pipe(gulp.dest('./build/css'));
 });
