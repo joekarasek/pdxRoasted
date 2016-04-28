@@ -1,7 +1,10 @@
+//        (>'-')>  ng2 Core  <('-'<)
 import { Component, OnInit } from 'angular2/core';
-
+//        (>'-')>  ng2 Http  <('-'<)
 import { HTTP_PROVIDERS } from 'angular2/http';
-
+//        (>'-')>  ng2 Router  <('-'<)
+import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
+//        (>'-')>  Firebase Service DI  <('-'<)
 import { FirebaseService } from './firebase.service';
 
 @Component({
@@ -23,14 +26,14 @@ export class AppComponent implements OnInit {
   ngOnInit() {
       this.getRoasts();
       console.log(this.roasts);
-  }
+    }
 
    getRoasts() {
       this._firebaseService.getRoasts()
           .subscribe(
             roasts => this.roasts = JSON.stringify(roasts),
             error => console.log(error));
-   }
+          }
 
 
 }
