@@ -48,9 +48,15 @@ gulp.task('default', ['ts', 'sassBuild'], function() {
       index: "index.html"
     }
   });
-  gulp.watch(['*.html'], ['htmlBuild']); // html changes, reload.
-  gulp.watch(['resources/styles/*/*.css', 'resources/styles/*/*.scss'], ['cssBuild']); // css or sass changes, concatenate all css/sass, build, reload.
-  gulp.watch(['app/*.ts'], ['tsBuild']); // typescript files change, compile then reload.
+  gulp.watch(['*.html'], ['htmlBuild']).on('change', function(e) {
+    console.log('Gulp Watch ----> ' + e.path + ' was ' + e.type + ', running tasks...');
+  });
+  gulp.watch(['resources/styles/*/*.css', 'resources/styles/*/*.scss'], ['cssBuild']).on('change', function(e) {
+    console.log('Gulp Watch ----> ' + e.path + ' was ' + e.type + ', running tasks...');
+  });
+  gulp.watch(['app/*.ts'], ['tsBuild']).on('change', function(e) {
+    console.log('Gulp Watch ----> ' + e.path + ' was ' + e.type + ', running tasks...');
+  });
 });
 
 
