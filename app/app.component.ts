@@ -7,8 +7,8 @@ import { FirebaseService } from './firebase.service';
 @Component({
   selector: 'my-app',
   template: `
-      <h1>Hello, Angular2!</h1>
-      <p>{{response}}<p>
+      <h1>Hello, pdxRoasted!</h1>
+      <p>{{roasts}}<p>
   `,
   providers: [
     HTTP_PROVIDERS,
@@ -16,19 +16,19 @@ import { FirebaseService } from './firebase.service';
   ]
 })
 export class AppComponent implements OnInit {
-  response: string;
+  roasts: string;
 
   constructor(private _firebaseService: FirebaseService) {}
 
   ngOnInit() {
       this.getRoasts();
-      console.log(this.response);
+      console.log(this.roasts);
   }
 
    getRoasts() {
       this._firebaseService.getRoasts()
           .subscribe(
-            roasts => this.response = JSON.stringify(roasts),
+            roasts => this.roasts = JSON.stringify(roasts),
             error => console.log(error));
    }
 
