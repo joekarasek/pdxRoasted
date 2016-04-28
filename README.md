@@ -19,12 +19,12 @@ You might see this error when installing node packages: `npm ERR! cb() never cal
 The version of Node installed on your machine, or the npm version, may be out of date for current Angular2 dependencies (more than likely it's zone.js).
 
 ### Try these steps
-*Update Node (_run with sudo if needed_)*
+#### Update Node (_run with sudo if needed_)
 1. `npm cache clean -f`
 2. `npm install -g n`
 3. `n stable`
 
-*Update npm*
+#### Update npm
 `npm install npm@latest -g`
 
 Try running `npm install` again!
