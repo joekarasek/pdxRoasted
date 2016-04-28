@@ -1,34 +1,20 @@
-////////////////////// DEPENDENCIES AND VARIABLES //////////////////////
 var gulp = require('gulp');
-
-// used for build and clean tasks.
 var utilities = require('gulp-util');
 var del = require('del');
-
-// set up server with watchers and run typescript compiler in the shell.
 var browserSync = require('browser-sync').create();
 var shell = require('gulp-shell');
-
-// sass dependencies.
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 
-
-
-////////////////////// TYPESCRIPT //////////////////////
-
-// clean task
+// Build tasks
 gulp.task('tsClean', function(){
   return del(['app/*.js', 'app/*.js.map']);
 });
 
-// clean and then compile once. To be called from server and global build.
 gulp.task('ts', ['tsClean'], shell.task([
   'tsc'
 ]));
-
-////////////////////// SASS //////////////////////
 
 gulp.task('sassBuild', function() {
   return gulp.src(['resources/styles/*'])
@@ -39,8 +25,7 @@ gulp.task('sassBuild', function() {
     .pipe(gulp.dest('./build/css'));
 });
 
-////////////////////// SERVER //////////////////////
-
+// Run dev server with build dependencies
 gulp.task('default', ['ts', 'sassBuild'], function() {
   browserSync.init({
     server: {
@@ -59,7 +44,6 @@ gulp.task('default', ['ts', 'sassBuild'], function() {
   });
 });
 
-
 gulp.task('htmlBuild', function(){
   browserSync.reload();
 });
@@ -72,9 +56,7 @@ gulp.task('tsBuild', ['ts'], function(){
   browserSync.reload();
 });
 
-////////////////////// GLOBAL BUILD TASK //////////////////////
-
-// global build task with individual clean tasks as dependencies.
+// Production Build
 gulp.task('prod', ['ts'], function(){
   return gulp
     .src(['resources/styles/*'])
