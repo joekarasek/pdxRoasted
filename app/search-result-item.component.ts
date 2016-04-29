@@ -1,20 +1,17 @@
 import { Component, OnInit } from 'angular2/core';
-import { Router } from 'angular2/router';
 import { FirebaseService } from './firebase.service';
 import { Observable } from 'rxjs/Observable';
 
-import { Roast } from './roast.model';
-
 @Component({
-  selector: 'search-result-list',
-  templateUrl: 'app/search-result-list.component.html'
+  selector: 'search-result-item',
+  templateUrl: 'app/search-result-item.component.html'
 })
 
-export class SearchResultListComponent implements OnInit {
+export class SearchResultItemComponent implements OnInit{
   constructor(private _firebaseService: FirebaseService) {}
 
   ngOnInit() {
-
+    
   }
-  
+
 }
