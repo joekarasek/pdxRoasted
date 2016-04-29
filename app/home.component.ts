@@ -12,5 +12,6 @@ import { SearchComponent } from './search.component';
   directives: [SearchComponent]
 })
 export class HomeComponent {
-
+  constructor(private _firebaseService: FirebaseService) {}
+  
 }
