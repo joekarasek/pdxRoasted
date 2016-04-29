@@ -7,12 +7,17 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/route
 //        (>'-')>  Firebase Service DI  <('-'<)
 import { FirebaseService } from './firebase.service';
 import { SearchComponent } from './search.component';
+import { SearchResultListComponent } from './search-result-list.component';
 
 @Component({
   selector: 'my-app',
+  directives: [SearchComponent],
   template: `
+    <div class="container">
       <h1>Hello, pdxRoasted!</h1>
       <p>{{roasts}}<p>
+      <search></search>
+    </div>
   `,
   providers: [
     HTTP_PROVIDERS,
@@ -35,6 +40,5 @@ export class AppComponent implements OnInit {
             roasts => this.roasts = JSON.stringify(roasts),
             error => console.log(error));
           }
-
 
 }
