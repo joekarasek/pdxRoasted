@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'about',
-  template: `<h1>About</h1>`
+  templateUrl: 'app/about.component.ts'
 })
 
 export class AboutComponent {

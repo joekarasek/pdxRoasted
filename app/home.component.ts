@@ -3,6 +3,7 @@ import { Router } from 'angular2/router';
 import { FirebaseService } from './firebase.service';
 import { Observable } from 'rxjs/Observable';
 
+//        (>'-')>  Components  <('-'<)
 import { SearchComponent } from './search.component';
 
 @Component({
