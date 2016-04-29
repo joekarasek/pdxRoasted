@@ -3,7 +3,7 @@
 ### Coming May, 2016
 Stay tuned ;)
 
--pdxRoasted team
+-PDXRoasted team
 
 ## Instructions to run
 1. clone
