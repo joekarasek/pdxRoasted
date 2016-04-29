@@ -5,12 +5,23 @@ import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'search',
-  template: `
-    <label>Search</label>
-    <input type="text" name="keyword">
-  `
+  templateUrl: 'app/search.component.html'
 })
+export class SearchComponent implements OnInit {
+  roasts: string;
 
-export class SearchComponent {
+  constructor(private _firebaseService: FirebaseService) {}
+
+  ngOnInit() {
+    this.getRoasts();
+    console.log(this.roasts);
+  }
+
+   getRoasts() {
+      this._firebaseService.getRoasts()
+          .subscribe(
+            roasts => this.roasts = JSON.stringify(roasts),
+            error => console.log(error));
+          }
 
 }
