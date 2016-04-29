@@ -2,12 +2,14 @@ import { Component, OnInit } from 'angular2/core';
 import { Router } from 'angular2/router';
 import { FirebaseService } from './firebase.service';
 import { Observable } from 'rxjs/Observable';
-import { SearchComponent } from './search.component';
+
+import { Roast } from './roast.model';
 
 @Component({
   selector: 'search-result-list',
-  template: `
-  `
+  templateUrl: 'app/search-result-list.component.html'
 })
 
-export class SearchResultListComponent { }
+export class SearchResultListComponent {
+  constructor(private _firebaseService: FirebaseService) {}
+}
