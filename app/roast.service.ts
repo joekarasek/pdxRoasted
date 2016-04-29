@@ -11,7 +11,13 @@ export class RoastService {
   private _url = 'https://pdxroasted.firebaseio.com/roasts';
 
   getRoasts() {
-    return this._http.get('https://pdxroasted.firebaseio.com/Roasts.json')
+    return this._http.get('https://pdxroasted.firebaseio.com/roasts.json')
+               .map(response => response.json())
+               .catch(this.handleError);
+  }
+
+  getAllFlavors() {
+    return this._http.get('https://pdxroasted.firebaseio.com/roasts.json')
                .map(response => response.json())
                .catch(this.handleError);
   }

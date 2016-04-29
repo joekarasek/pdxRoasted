@@ -1,2 +1,12 @@
-<label>Search</label>
-<input type="text" name="keyword">
+<ul>
+  <li *ngFor="#roast of roasts">
+    <p *ngFor="#flavor of roast.flavors">
+      {{flavor}}
+    </p>
+  </li>
+</ul>
+<select *ngFor="#roast of roasts">
+  <option *ngFor="#flavor of roast.flavors">
+    {{flavor}}
+  </option>
+</select>

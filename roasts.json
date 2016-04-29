@@ -1,20 +1,20 @@
 { "roasts" : [
     {
-      "id": 11,
       "name": "Colombia El Nevado",
       "vendor": "Stumptown",
       "flavors": ["Honeydew", "Pineapple", "Cola"],
       "description": "We overheard someone from our coffee team describe this one like a “pancake breakfast,” warm and buttery with maple syrup sweetness. Quickly becoming a staff favorite."
     },
     {
-      "id": 12,
       "name": "Colombia El Jordan",
       "vendor": "Stumptown",
-      "flavors": ["Tangerine", "Cinnamon", "Honey"],
+      "flavors": {
+        "Tangerine",
+         "Cinnamon",
+          "Honey"}
       "description": "A warm and sweet cup that is well-structured. Notes of honey, vanilla, citrus and apple set the bar for this idyllic Colombian coffee."
     },
     {
-      "id": 13,
       "name": "Peru Chirinos",
       "vendor": "Stumptown",
       "flavors": ["Fuji Apple", "Vanilla", "Chocolate"],
