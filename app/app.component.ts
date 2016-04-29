@@ -6,6 +6,7 @@ import { HTTP_PROVIDERS } from 'angular2/http';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 //        (>'-')>  Firebase Service DI  <('-'<)
 import { FirebaseService } from './firebase.service';
+import { SearchComponent } from './search.component';
 
 @Component({
   selector: 'my-app',
