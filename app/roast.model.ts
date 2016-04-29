@@ -4,11 +4,13 @@ export class Roast {
   constructor(
     public name: string,
     public vendor: Vendor,
-    public process: string,
     public flavors: string[],
-    public varietal: string,
-    public species: string,
+    public description: string,
+    public img: string,
     public url: string,
-    public img: string
-  ) {}
+    public process?: string,
+    public varietal?: string,
+    public species?: string) {
+
+    }
 }

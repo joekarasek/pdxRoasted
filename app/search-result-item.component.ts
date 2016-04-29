@@ -1,5 +1,5 @@
 import { Component, OnInit } from 'angular2/core';
-import { FirebaseService } from './firebase.service';
+import { RoastService } from './roast.service';
 import { Observable } from 'rxjs/Observable';
 
 import { Router } from 'angular2/router';
@@ -11,7 +11,7 @@ import { Router } from 'angular2/router';
 
 export class SearchResultItemComponent implements OnInit{
   constructor(
-    private _firebaseService: FirebaseService,
+    private _roastService: RoastService,
     private _router: Router) {
 
     }

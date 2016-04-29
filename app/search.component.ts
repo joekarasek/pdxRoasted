@@ -1,6 +1,6 @@
 import { Component, OnInit } from 'angular2/core';
 import { Router } from 'angular2/router';
-import { FirebaseService } from './firebase.service';
+import { RoastService } from './Roast.service';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -10,7 +10,7 @@ import { Observable } from 'rxjs/Observable';
 export class SearchComponent implements OnInit {
   roasts: string;
 
-  constructor(private _firebaseService: FirebaseService) {}
+  constructor(private _roastService: RoastService) {}
 
   ngOnInit() {
     this.getRoasts();
@@ -18,7 +18,7 @@ export class SearchComponent implements OnInit {
   }
 
    getRoasts() {
-      this._firebaseService.getRoasts()
+      this._roastService.getRoasts()
           .subscribe(
             roasts => this.roasts = JSON.stringify(roasts),
             error => console.log(error));
