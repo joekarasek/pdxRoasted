@@ -18,8 +18,5 @@ export class SearchResultListComponent implements OnInit {
 
   }
 
-  gotoDetail() {
-
-  }
 
 }
