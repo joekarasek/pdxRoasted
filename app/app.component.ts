@@ -23,17 +23,26 @@ import { AboutUsComponent } from './about-us.component';
       </nav>
       <router-outlet></router-outlet>
   `,
+  directives: [
+    ROUTER_DIRECTIVES
+  ],
   providers: [
+    ROUTER_PROVIDERS,
     HTTP_PROVIDERS,
     FirebaseService
   ]
 })
 @RouteConfig([
   {
+    path: '/search',
+    name: 'Search',
+    component: SearchComponent,
+    useAsDefault: true
+  },
+  {
     path: '/aboutus',
     name: 'AboutUs',
-    component: AboutUsComponent,
-
+    component: AboutUsComponent
   }
 ])
 export class AppComponent {
