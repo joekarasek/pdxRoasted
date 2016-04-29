@@ -7,22 +7,14 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/route
 //        (>'-')>  Firebase Service DI  <('-'<)
 import { FirebaseService } from './firebase.service';
 //        (>'-')>  Components  <('-'<)
+import { HomeComponent } from './home.component';
+import { AboutComponent } from './about.component';
+import { ContactComponent } from './contact.component';
 import { SearchComponent } from './search.component';
-import { AboutUsComponent } from './about-us.component';
 
 @Component({
   selector: 'my-app',
-  template: `
-      <h1>Hello, pdxRoasted!</h1>
-      <nav>
-        <ul>
-          <li>
-            <a [routerLink]="['AboutUs']">About Us</a>
-          </li>
-        </ul>
-      </nav>
-      <router-outlet></router-outlet>
-  `,
+  templateUrl: 'app/app.component.html',
   directives: [
     ROUTER_DIRECTIVES
   ],
@@ -34,15 +26,25 @@ import { AboutUsComponent } from './about-us.component';
 })
 @RouteConfig([
   {
-    path: '/search',
-    name: 'Search',
-    component: SearchComponent,
+    path: '/home',
+    name: 'Home',
+    component: HomeComponent,
     useAsDefault: true
   },
   {
-    path: '/aboutus',
-    name: 'AboutUs',
-    component: AboutUsComponent
+    path: '/find_coffee',
+    name: 'Search',
+    component: SearchComponent,
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: AboutComponent
+  },
+  {
+    path: '/contact',
+    name: 'Contact',
+    component: ContactComponent
   }
 ])
 export class AppComponent {
