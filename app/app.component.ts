@@ -6,35 +6,47 @@ import { HTTP_PROVIDERS } from 'angular2/http';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 //        (>'-')>  Firebase Service DI  <('-'<)
 import { FirebaseService } from './firebase.service';
+//        (>'-')>  Components  <('-'<)
+import { HomeComponent } from './home.component';
+import { AboutComponent } from './about.component';
+import { ContactComponent } from './contact.component';
 import { SearchComponent } from './search.component';
 
 @Component({
   selector: 'my-app',
-  template: `
-      <h1>Hello, pdxRoasted!</h1>
-      <p>{{roasts}}<p>
-  `,
+  templateUrl: 'app/app.component.html',
+  directives: [
+    ROUTER_DIRECTIVES
+  ],
   providers: [
+    ROUTER_PROVIDERS,
     HTTP_PROVIDERS,
     FirebaseService
   ]
 })
-export class AppComponent implements OnInit {
-  roasts: string;
-
-  constructor(private _firebaseService: FirebaseService) {}
-
-  ngOnInit() {
-      this.getRoasts();
-      console.log(this.roasts);
-    }
-
-   getRoasts() {
-      this._firebaseService.getRoasts()
-          .subscribe(
-            roasts => this.roasts = JSON.stringify(roasts),
-            error => console.log(error));
-          }
-
+@RouteConfig([
+  {
+    path: '/home',
+    name: 'Home',
+    component: HomeComponent,
+    useAsDefault: true
+  },
+  {
+    path: '/find_coffee',
+    name: 'Search',
+    component: SearchComponent,
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: AboutComponent
+  },
+  {
+    path: '/contact',
+    name: 'Contact',
+    component: ContactComponent
+  }
+])
+export class AppComponent {
 
 }
