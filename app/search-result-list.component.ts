@@ -12,8 +12,13 @@ import { Roast } from './roast.model';
 
 export class SearchResultListComponent implements OnInit {
   constructor(private _roastService: RoastService) {}
+  roasts: Roast[];
 
   ngOnInit() {
+
+  }
+
+  gotoDetail() {
 
   }
 
