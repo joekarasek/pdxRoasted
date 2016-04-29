@@ -5,12 +5,8 @@ import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'search',
-  template: `
-    <label>Search</label>
-    <input type="text" name="keyword">
-  `
+  templateUrl: 'app/search.component.html'
 })
-
 export class SearchComponent implements OnInit {
   roasts: string;
 
