@@ -17,7 +17,7 @@ export class RoastService {
   }
 
   getAllFlavors() {
-    return this._http.get('https://pdxroasted.firebaseio.com/roasts.json')
+    return this._http.get('https://pdxroasted.firebaseio.com/flavors.json')
                .map(response => response.json())
                .catch(this.handleError);
   }

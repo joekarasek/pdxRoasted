@@ -4,6 +4,7 @@ import { RoastService } from './roast.service';
 import { Observable } from 'rxjs/Observable';
 
 import { Roast } from './roast.model';
+import { Flavor } from './flavor.model';
 
 @Component({
   selector: 'search',
@@ -11,12 +12,13 @@ import { Roast } from './roast.model';
 })
 export class SearchComponent implements OnInit {
   roasts: Roast[];
-  flavors: string[];
+  flavors: Flavor[];
 
   constructor(private _roastService: RoastService) {}
 
   ngOnInit() {
     this.getRoasts();
+    this.getFlavors();
   }
 
   getRoasts() {
@@ -29,7 +31,7 @@ export class SearchComponent implements OnInit {
   getFlavors() {
     this._roastService.getAllFlavors()
                       .subscribe(
-                        roasts => this.flavors = roasts,
+                        flavors => this.flavors = flavors,
                         error => console.log(error));
 
   }

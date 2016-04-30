@@ -2,7 +2,6 @@ import { Vendor } from './vendor.model';
 
 export class Roast {
   constructor(
-    public id: number,
     public name: string,
     public vendor: string,
     public flavors: string[],

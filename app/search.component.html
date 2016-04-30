@@ -1,12 +1,5 @@
-<ul>
-  <li *ngFor="#roast of roasts">
-    <p *ngFor="#flavor of roast.flavors">
-      {{flavor}}
-    </p>
-  </li>
-</ul>
-<select *ngFor="#roast of roasts">
-  <option *ngFor="#flavor of roast.flavors">
-    {{flavor}}
+<select>
+  <option *ngFor="#flavor of flavors">
+    {{flavor.name}}
   </option>
 </select>

@@ -1,96 +1,108 @@
 {
-  "roasts": {
-    "0": {
-      "name": "Colombia El Nevado",
-      "vendor": {
-        "stumptown": true
+  "roasts": [
+      {
+        "uid": 10,
+        "name": "Colombia El Nevado",
+        "vendor": {
+          "stumptown": true
+          },
+        "flavors": {
+          "honeydew": true,
+          "pineapple": true,
+          "cola": true
         },
-      "flavors": {
-        "honeydew": true,
-        "pineapple": true,
-        "cola": true
+        "description": "We overheard someone from our coffee team describe this one like a “pancake breakfast,” warm and buttery with maple syrup sweetness. Quickly becoming a staff favorite."
       },
-      "description": "We overheard someone from our coffee team describe this one like a “pancake breakfast,” warm and buttery with maple syrup sweetness. Quickly becoming a staff favorite."
-    },
-    "1": {
-      "name": "Colombia El Jordan",
-      "vendor": {
-        "stumptown": true
-        },
-      "flavors": {
-        "tangerine": true,
-         "cinnamon": true,
-          "honey": true
-        },
-      "description": "A warm and sweet cup that is well-structured. Notes of honey, vanilla, citrus and apple set the bar for this idyllic Colombian coffee."
-    },
-    "2": {
-      "name": "Peru Chirinos",
-      "vendor": {
-        "stumptown": true
-        },
-      "flavors": {
-        "fujiapple": true,
-        "vanilla": true,
-        "chocolate": true
-        },
-      "description": "The warm tartness of Fuji apple is balanced by sweet chocolate and vanilla spice."
-    }
-  },
-  "flavors": {
-    "tangerine": {
+      {
+        "uid": 11,
+        "name": "Colombia El Jordan",
+        "vendor": {
+          "stumptown": true
+          },
+        "flavors": {
+          "tangerine": true,
+           "cinnamon": true,
+            "honey": true
+          },
+        "description": "A warm and sweet cup that is well-structured. Notes of honey, vanilla, citrus and apple set the bar for this idyllic Colombian coffee."
+      },
+      {
+        "uid": 12,
+        "name": "Peru Chirinos",
+        "vendor": {
+          "stumptown": true
+          },
+        "flavors": {
+          "fujiapple": true,
+          "vanilla": true,
+          "chocolate": true
+          },
+        "description": "The warm tartness of Fuji apple is balanced by sweet chocolate and vanilla spice."
+      }
+    ],
+  "flavors": [
+    {
+      "uid": "tangerine",
       "name": "Tangerine",
       "roasts": {
-        "1": true
+        "11": true
       }
     },
-    "cinnamon": {
+    {
+      "uid": "cinnamon",
       "name": "Cinnamon",
       "roasts": {
-        "1": true
+        "11": true
       }
     },
-    "honey": {
+    {
+      "uid": "honey",
       "name": "Honey",
       "roasts": {
-        "1": true
+        "11": true
       }
     },
-    "honeydew": {
+    {
+      "uid": "honeydew",
       "name": "Honeydew",
       "roasts": {
-        "0": true
+        "10": true
       }
     },
-    "pineapple": {
+    {
+      "uid": "pineapple",
       "name": "Pineapple",
       "roasts": {
-        "0": true
+        "10": true
       }
     },
-    "cola": {
+    {
+      "uid": "cola",
       "name": "Cola",
       "roasts": {
-        "0": true
+        "10": true
       }
     },
-    "fujiapple": {
+    {
+      "uid": "fujiapple",
       "name": "Fuji Apple",
       "roasts": {
-        "2": true
+        "12": true
       }
     },
-    "vanilla": {
+    {
+      "uid": "vanilla",
       "name": "Vanilla",
       "roasts": {
-        "2": true
+        "12": true
       }
     },
-    "chocolate": {
+    {
+      "uid": "chocolate",
       "name": "Chocolate",
       "roasts": {
-        "2": true
+        "12": true
       }
     }
-  }
+  ]
 }
