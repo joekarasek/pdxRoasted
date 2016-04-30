@@ -1,24 +1,96 @@
-{ "roasts" : [
-    {
+{
+  "roasts": {
+    "0": {
       "name": "Colombia El Nevado",
-      "vendor": "Stumptown",
-      "flavors": ["Honeydew", "Pineapple", "Cola"],
+      "vendor": {
+        "stumptown": true
+        },
+      "flavors": {
+        "honeydew": true,
+        "pineapple": true,
+        "cola": true
+      },
       "description": "We overheard someone from our coffee team describe this one like a “pancake breakfast,” warm and buttery with maple syrup sweetness. Quickly becoming a staff favorite."
     },
-    {
+    "1": {
       "name": "Colombia El Jordan",
-      "vendor": "Stumptown",
+      "vendor": {
+        "stumptown": true
+        },
       "flavors": {
-        "Tangerine",
-         "Cinnamon",
-          "Honey"}
+        "tangerine": true,
+         "cinnamon": true,
+          "honey": true
+        },
       "description": "A warm and sweet cup that is well-structured. Notes of honey, vanilla, citrus and apple set the bar for this idyllic Colombian coffee."
     },
-    {
+    "2": {
       "name": "Peru Chirinos",
-      "vendor": "Stumptown",
-      "flavors": ["Fuji Apple", "Vanilla", "Chocolate"],
+      "vendor": {
+        "stumptown": true
+        },
+      "flavors": {
+        "fujiapple": true,
+        "vanilla": true,
+        "chocolate": true
+        },
       "description": "The warm tartness of Fuji apple is balanced by sweet chocolate and vanilla spice."
     }
-  ]
+  },
+  "flavors": {
+    "tangerine": {
+      "name": "Tangerine",
+      "roasts": {
+        "1": true
+      }
+    },
+    "cinnamon": {
+      "name": "Cinnamon",
+      "roasts": {
+        "1": true
+      }
+    },
+    "honey": {
+      "name": "Honey",
+      "roasts": {
+        "1": true
+      }
+    },
+    "honeydew": {
+      "name": "Honeydew",
+      "roasts": {
+        "0": true
+      }
+    },
+    "pineapple": {
+      "name": "Pineapple",
+      "roasts": {
+        "0": true
+      }
+    },
+    "cola": {
+      "name": "Cola",
+      "roasts": {
+        "0": true
+      }
+    },
+    "fujiapple": {
+      "name": "Fuji Apple",
+      "roasts": {
+        "2": true
+      }
+    },
+    "vanilla": {
+      "name": "Vanilla",
+      "roasts": {
+        "2": true
+      }
+    },
+    "chocolate": {
+      "name": "Chocolate",
+      "roasts": {
+        "2": true
+      }
+    }
+  }
 }
