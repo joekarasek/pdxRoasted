@@ -1,1 +1,17 @@
 <h1>Search Result List</h1>
+<ul>
+  <li *ngFor="#roast of roasts">
+    <p>
+      {{roast.name}}
+    </p>
+    <p>
+      {{roast.vendor}}
+    </p>
+    <p>
+      {{roast.flavors}}
+    </p>
+    <p>
+      {{roast.description}}
+    </p>
+  </li>
+</ul>

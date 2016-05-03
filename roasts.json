@@ -1,0 +1,108 @@
+{
+  "roasts": [
+      {
+        "uid": 10,
+        "name": "Colombia El Nevado",
+        "vendor": {
+          "stumptown": true
+          },
+        "flavors": {
+          "honeydew": true,
+          "pineapple": true,
+          "cola": true
+        },
+        "description": "We overheard someone from our coffee team describe this one like a “pancake breakfast,” warm and buttery with maple syrup sweetness. Quickly becoming a staff favorite."
+      },
+      {
+        "uid": 11,
+        "name": "Colombia El Jordan",
+        "vendor": {
+          "stumptown": true
+          },
+        "flavors": {
+          "tangerine": true,
+           "cinnamon": true,
+            "honey": true
+          },
+        "description": "A warm and sweet cup that is well-structured. Notes of honey, vanilla, citrus and apple set the bar for this idyllic Colombian coffee."
+      },
+      {
+        "uid": 12,
+        "name": "Peru Chirinos",
+        "vendor": {
+          "stumptown": true
+          },
+        "flavors": {
+          "fujiapple": true,
+          "vanilla": true,
+          "chocolate": true
+          },
+        "description": "The warm tartness of Fuji apple is balanced by sweet chocolate and vanilla spice."
+      }
+    ],
+  "flavors": [
+    {
+      "uid": "tangerine",
+      "name": "Tangerine",
+      "roasts": {
+        "11": true
+      }
+    },
+    {
+      "uid": "cinnamon",
+      "name": "Cinnamon",
+      "roasts": {
+        "11": true
+      }
+    },
+    {
+      "uid": "honey",
+      "name": "Honey",
+      "roasts": {
+        "11": true
+      }
+    },
+    {
+      "uid": "honeydew",
+      "name": "Honeydew",
+      "roasts": {
+        "10": true
+      }
+    },
+    {
+      "uid": "pineapple",
+      "name": "Pineapple",
+      "roasts": {
+        "10": true
+      }
+    },
+    {
+      "uid": "cola",
+      "name": "Cola",
+      "roasts": {
+        "10": true
+      }
+    },
+    {
+      "uid": "fujiapple",
+      "name": "Fuji Apple",
+      "roasts": {
+        "12": true
+      }
+    },
+    {
+      "uid": "vanilla",
+      "name": "Vanilla",
+      "roasts": {
+        "12": true
+      }
+    },
+    {
+      "uid": "chocolate",
+      "name": "Chocolate",
+      "roasts": {
+        "12": true
+      }
+    }
+  ]
+}

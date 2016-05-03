@@ -4,14 +4,20 @@ import {Observable} from 'rxjs/Observable';
 
 
 @Injectable()
-export class FirebaseService {
+export class RoastService {
 
   constructor(private _http: Http) {}
 
   private _url = 'https://pdxroasted.firebaseio.com/roasts';
 
   getRoasts() {
-    return this._http.get('https://pdxroasted.firebaseio.com/Roasts.json')
+    return this._http.get('https://pdxroasted.firebaseio.com/roasts.json')
+               .map(response => response.json())
+               .catch(this.handleError);
+  }
+
+  getAllFlavors() {
+    return this._http.get('https://pdxroasted.firebaseio.com/flavors.json')
                .map(response => response.json())
                .catch(this.handleError);
   }

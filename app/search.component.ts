@@ -1,27 +1,40 @@
 import { Component, OnInit } from 'angular2/core';
 import { Router } from 'angular2/router';
-import { FirebaseService } from './firebase.service';
+import { RoastService } from './roast.service';
 import { Observable } from 'rxjs/Observable';
+
+import { Roast } from './roast.model';
+import { Flavor } from './flavor.model';
 
 @Component({
   selector: 'search',
   templateUrl: 'app/search.component.html'
 })
 export class SearchComponent implements OnInit {
-  roasts: string;
+  roasts: Roast[];
+  flavors: Flavor[];
 
-  constructor(private _firebaseService: FirebaseService) {}
+  constructor(private _roastService: RoastService) {}
 
   ngOnInit() {
     this.getRoasts();
-    console.log(this.roasts);
+    this.getFlavors();
   }
 
-   getRoasts() {
-      this._firebaseService.getRoasts()
-          .subscribe(
-            roasts => this.roasts = JSON.stringify(roasts),
-            error => console.log(error));
-          }
+  getRoasts() {
+    this._roastService.getRoasts()
+                      .subscribe(
+                      roasts => this.roasts = roasts,
+                      error => console.log(error));
+  }
+
+  getFlavors() {
+    this._roastService.getAllFlavors()
+                      .subscribe(
+                        flavors => this.flavors = flavors,
+                        error => console.log(error));
+
+  }
+
 
 }

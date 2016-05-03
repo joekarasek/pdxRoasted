@@ -1,6 +1,6 @@
 import { Component, OnInit } from 'angular2/core';
 import { Router } from 'angular2/router';
-import { FirebaseService } from './firebase.service';
+import { RoastService } from './roast.service';
 import { Observable } from 'rxjs/Observable';
 
 //        (>'-')>  Components  <('-'<)
@@ -12,6 +12,6 @@ import { SearchComponent } from './search.component';
   directives: [SearchComponent]
 })
 export class HomeComponent {
-  constructor(private _firebaseService: FirebaseService) {}
-  
+  constructor(private _roastService: RoastService) {}
+
 }

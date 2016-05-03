@@ -1,2 +1,5 @@
-<label>Search</label>
-<input type="text" name="keyword">
+<select>
+  <option *ngFor="#flavor of flavors">
+    {{flavor.name}}
+  </option>
+</select>
