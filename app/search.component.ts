@@ -12,29 +12,40 @@ import { Flavor } from './flavor.model';
 })
 export class SearchComponent implements OnInit {
   roasts: Roast[];
-  flavors: Flavor[];
+  flavors: string[] = ["hello", "world"];
 
   constructor(private _roastService: RoastService) {}
 
   ngOnInit() {
-    this.getRoasts();
     this.getFlavors();
   }
 
-  getRoasts() {
-    this._roastService.getRoasts()
-                      .subscribe(
-                      roasts => this.roasts = roasts,
-                      error => console.log(error));
-  }
+    getFlavors() {
+      var that = this;
 
-  getFlavors() {
-    this._roastService.getAllFlavors()
-                      .subscribe(
-                        flavors => this.flavors = flavors,
-                        error => console.log(error));
+      that._roastService.getFlavors().then(function(data){
+        data.forEach(function (element, index) {
+          that.flavors.push(element.name);
+        })
+      });
+      
+    }
 
-  }
+
+  // getRoasts() {
+  //   this._roastService.getRoasts()
+  //                     .subscribe(
+  //                     roasts => this.roasts = roasts,
+  //                     error => console.log(error));
+  // }
+  //
+  // getFlavors() {
+  //   this._roastService.getAllFlavors()
+  //                     .subscribe(
+  //                       flavors => this.flavors = flavors,
+  //                       error => console.log(error));
+  //
+  // }
 
 
 }
