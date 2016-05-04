@@ -1,5 +1,11 @@
+<form>
 <select>
   <option *ngFor="#flavor of flavors">
-    {{flavor}}
+    {{flavor.name}}
   </option>
 </select>
+<button>Add</button>
+<form>
+<ul *ngIf="palette_flavors">
+  <li *ngFor="#flav of palette_flavors">{{flav}}<li>
+</ul>
