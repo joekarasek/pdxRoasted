@@ -1,6 +1,5 @@
 import { Component, OnInit } from 'angular2/core';
 import { RoastService } from './roast.service';
-import { Observable } from 'rxjs/Observable';
 
 import { Router } from 'angular2/router';
 

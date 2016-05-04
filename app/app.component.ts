@@ -1,7 +1,5 @@
 //        (>'-')>  ng2 Core  <('-'<)
 import { Component, OnInit } from 'angular2/core';
-//        (>'-')>  ng2 Http  <('-'<)
-import { HTTP_PROVIDERS } from 'angular2/http';
 //        (>'-')>  ng2 Router  <('-'<)
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 //        (>'-')>  Firebase Service DI  <('-'<)
@@ -20,13 +18,12 @@ import { SearchComponent } from './search.component';
   ],
   providers: [
     ROUTER_PROVIDERS,
-    HTTP_PROVIDERS,
     RoastService
   ]
 })
 @RouteConfig([
   {
-    path: '/home',
+    path: '/',
     name: 'Home',
     component: HomeComponent,
     useAsDefault: true
@@ -48,5 +45,7 @@ import { SearchComponent } from './search.component';
   }
 ])
 export class AppComponent {
+  site_id: string =  "PDX Roasted";
+  tag_line: string = "Filter through Portland roasted coffee. Find the best for you."
 
 }
