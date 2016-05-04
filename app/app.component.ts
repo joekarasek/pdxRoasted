@@ -45,5 +45,7 @@ import { SearchComponent } from './search.component';
   }
 ])
 export class AppComponent {
+  site_id: string =  "PDX Roasted";
+  tag_line: string = "Filter through Portland roasted coffee. Find the best for you."
 
 }

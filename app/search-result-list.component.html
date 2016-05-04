@@ -1,5 +1,5 @@
 <h1>Search Result List</h1>
-<ul>
+<ul *ngIf="roasts">
   <li *ngFor="#roast of roasts">
     <p>
       {{roast.name}}

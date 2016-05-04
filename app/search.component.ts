@@ -10,10 +10,11 @@ import { SearchResultListComponent } from './search-result-list.component';
 @Component({
   selector: 'search',
   templateUrl: 'app/search.component.html',
-  
+
 })
 export class SearchComponent implements OnInit {
   flavors: string[] = [];
+  flavorsFetched: boolean = false;
 
   constructor(private _roastService: RoastService) {}
 
@@ -27,6 +28,7 @@ export class SearchComponent implements OnInit {
         data.forEach(function (element, index) {
           that.flavors.push(element.name);
         })
+        that.flavorsFetched = true;
       });
     }
 
