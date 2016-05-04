@@ -13,7 +13,7 @@ import { SearchResultListComponent } from './search-result-list.component';
 
 })
 export class SearchComponent implements OnInit {
-  flavors: Flavor[];
+  flavors: any[];
   palette_flavors: string[];
 
   constructor(
@@ -29,9 +29,7 @@ export class SearchComponent implements OnInit {
     getFlavors() {
       var that = this;
       that._roastService.getFlavors().then(function(data){
-        data.forEach(function (flavor, index) {
-          that.flavors.push(flavor);
-        })
+        that.flavors = Object.keys(data).map(key => {return data[key]});
       });
     }
 

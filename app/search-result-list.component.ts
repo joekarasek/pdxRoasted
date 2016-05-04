@@ -10,19 +10,33 @@ import { Roast } from './roast.model';
 })
 
 export class SearchResultListComponent implements OnInit {
-  constructor(private _roastService: RoastService) {}
-  roasts: string[] = [];
+  roasts: string[];
+
+  constructor(
+    private _roastService: RoastService)
+    {
+      this.roasts = [];
+    }
 
   ngOnInit() {
     this.getRoasts();
   }
 
+  // getRoasts() {
+  //   var that = this;
+  //   that._roastService.getRoasts().then(function(data){
+  //     data.forEach(function (element, index) {
+  //       that.roasts.push(element);
+  //     })
+  //   });
+  // }
+
   getRoasts() {
     var that = this;
     that._roastService.getRoasts().then(function(data){
-      data.forEach(function (element, index) {
-        that.roasts.push(element);
-      })
+      for(var roast in data){
+        that.roasts.push(roast);
+      }
     });
   }
 
