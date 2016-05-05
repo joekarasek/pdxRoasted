@@ -10,7 +10,7 @@ import { Roast } from './roast.model';
 })
 
 export class SearchResultListComponent implements OnInit {
-  roasts: string[];
+  roasts: any[];
 
   constructor(
     private _roastService: RoastService)
@@ -22,21 +22,10 @@ export class SearchResultListComponent implements OnInit {
     this.getRoasts();
   }
 
-  // getRoasts() {
-  //   var that = this;
-  //   that._roastService.getRoasts().then(function(data){
-  //     data.forEach(function (element, index) {
-  //       that.roasts.push(element);
-  //     })
-  //   });
-  // }
-
   getRoasts() {
     var that = this;
     that._roastService.getRoasts().then(function(data){
-      for(var roast in data){
-        that.roasts.push(roast);
-      }
+      that.roasts = Object.keys(data).map(key => {return data[key]});
     });
   }
 
