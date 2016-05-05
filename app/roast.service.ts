@@ -18,36 +18,45 @@ export class RoastService {
     });
   }
 
-  getRoasts(flavors) {
+  getRoasts(flavors: string[]) {
     var that = this;
     var flav1 = flavors[0];
     var flav2 = flavors[1];
     var flav3 = flavors[2];
+    var allRoasts = [];
 
     switch (flavors.length) {
       case 1:
-        this.roasts.orderByChild("flavors/"+flav1).equalTo(true).once('value', function(roasts) {
-          console.log(roasts.val());
+        return this.roasts.orderByChild("flavors/"+flav1).equalTo(true).once('value').then(function(roasts) {
+          console.log("One Flavor");
+          roasts.forEach(function(roast) {
+            allRoasts.push(roast.val());
+          })
+          return allRoasts;
         })
         break;
       case 2:
-        this.roasts.orderByChild("flavors/"+flav1).equalTo(true).once('value', function(roasts) {
+        return this.roasts.orderByChild("flavors/"+flav1).equalTo(true).once('value').then(function(roasts) {
+          console.log("Two Flavor");
           roasts.forEach(function(roast) {
             if (roast.child("flavors").child(flav2).exists()) {
-                console.log(roast.val());
+                allRoasts.push(roast.val());
             }
-          })
-        })
-        break;
+          });
+          return allRoasts;
+        });
+        break
       case 3:
-        this.roasts.orderByChild("flavors/"+flav1).equalTo(true).once('value', function(roasts) {
+        return this.roasts.orderByChild("flavors/"+flav1).equalTo(true).once('value').then(function(roasts) {
+          console.log("Three Flavor");
           roasts.forEach(function(roast) {
             if (roast.child("flavors").child(flav2).exists() && roast.child("flavors").child(flav3).exists()) {
-                console.log(roast.val());
+                allRoasts.push(roast.val());
             }
           })
+          return allRoasts;
         })
-        break;
+        break
     }
   }
 
