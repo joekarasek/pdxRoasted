@@ -23,6 +23,7 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     this.getFlavors();
+    this._roastService.getRoasts(["honey", "cinnamon", "tangerine"]);
   }
 
   getFlavors() {

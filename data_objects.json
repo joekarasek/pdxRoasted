@@ -30,6 +30,7 @@
           "stumptown": true
           },
         "flavors": {
+          "honey": true,
           "fujiapple": true,
           "vanilla": true,
           "chocolate": true

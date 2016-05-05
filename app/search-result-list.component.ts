@@ -19,12 +19,12 @@ export class SearchResultListComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.getRoasts();
+    this.getAllRoasts();
   }
 
-  getRoasts() {
+  getAllRoasts() {
     var that = this;
-    that._roastService.getRoasts().then(function(data){
+    that._roastService.getAllRoasts().then(function(data){
       that.roasts = Object.keys(data).map(key => {return data[key]});
     });
   }
