@@ -1,24 +1,25 @@
 .homepageLeft {
-  border: 1px solid cyan;
-  width: calc(50% - 2px);
+  color: $cream;
+  width: 50%;
   float: left;
   height: 100vh;
   @include flexbox($justify: center, $direction: column, $align:center);
+  background: $primaryBlue;
   .logoText {
     width: 90%;
     h1 {
-      @include textFormat(45px);
+      @include textFormat(45px, lighter, $l-spacing: 3px);
     }
   }
   .search {
-    border: 1px solid blue;
     width: 90%;
   }
 }
 
-.results {
-  border: 1px solid red;
-  width: calc(50% - 2px);
+.homepageRight {
+  background-image: linear-gradient(rgba($cream, 0.45),
+    rgba($cream, 0.45)),url("#{$path-img}/beans.jpg");
+  width: 50%;
   float: right;
   height: 100vh;
   @include flexbox($justify: center, $align:center);

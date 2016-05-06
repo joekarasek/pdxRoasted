@@ -1,0 +1,16 @@
+.header {
+  width: 50%;
+  position: absolute;
+  nav {
+    ul {
+      margin-top: 5%;
+      display: flex;
+      list-style-type: none;
+      @include flexbox ($justify: space-around);
+      a {
+        @include textFormat(16px, $color: $cream);
+        text-decoration: none;
+      }
+    }
+  }
+}
