@@ -1,5 +1,4 @@
 // This is the header that appears on all pages //
-
 .header {
   width: 50%;
   position: absolute;
@@ -17,5 +16,44 @@
     }
   }
 }
-
 //end all page header //
+
+.aboutHeader {
+  background-image: linear-gradient(to bottom, rgba($primaryBlue, 0.8), rgba($primaryBlue, 0.6)), url("/../resources/img/coffee-wood.jpg");
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  max-width: 100%;
+  .content {
+    h1 {
+      position: relative;
+      left: 10%;
+      font-size: 100px;
+      letter-spacing: 3px;
+      padding-top: 150px;
+    }
+    p {
+      position: relative;
+      left: 10%;
+      width: 500px;
+      font-size: 18px;
+      line-height: 40px;
+      letter-spacing: 1px;
+      margin: 0px;
+    }
+  }
+}
+
+.contactHeader {
+  background-image: linear-gradient(to bottom, rgba($primaryBlue, 0.8), rgba($primaryBlue, 0.6)), url("/../resources/img/portland.jpg");
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15%;
+  h1 {
+    font-size: 100px;
+    letter-spacing: 3px;
+  }
+}
