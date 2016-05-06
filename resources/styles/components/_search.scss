@@ -1,0 +1,25 @@
+.homepageLeft {
+  border: 1px solid cyan;
+  width: calc(50% - 2px);
+  float: left;
+  height: 100vh;
+  @include flexbox($justify: center, $direction: column, $align:center);
+  .logoText {
+    width: 90%;
+    h1 {
+      @include textFormat(45px);
+    }
+  }
+  .search {
+    border: 1px solid blue;
+    width: 90%;
+  }
+}
+
+.results {
+  border: 1px solid red;
+  width: calc(50% - 2px);
+  float: right;
+  height: 100vh;
+  @include flexbox($justify: center, $align:center);
+}
