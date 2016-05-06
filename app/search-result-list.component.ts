@@ -10,8 +10,15 @@ import { Roast } from './roast.model';
 })
 
 export class SearchResultListComponent implements OnInit {
-  constructor(private _roastService: RoastService) {}
-  roasts: string[] = [];
+  roasts: any[];
+  flavors: string[];
+
+  constructor(
+    private _roastService: RoastService)
+    {
+      this.roasts = [];
+      this.flavors = ["honey"];
+    }
 
   ngOnInit() {
     this.getRoasts();
@@ -19,10 +26,9 @@ export class SearchResultListComponent implements OnInit {
 
   getRoasts() {
     var that = this;
-    that._roastService.getRoasts().then(function(data){
-      data.forEach(function (element, index) {
-        that.roasts.push(element);
-      })
+      this._roastService.getRoasts(this.flavors).then(function(data) {
+        that.roasts = data;
+        console.log(that.roasts);
     });
   }
 

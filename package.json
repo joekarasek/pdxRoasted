@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "tsc": "tsc",
-    "typings": "typings",
-    "postinstall": "typings install"
+    "typings": "typings"
   },
   "license": "ISC",
   "dependencies": {

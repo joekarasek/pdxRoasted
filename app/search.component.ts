@@ -13,24 +13,33 @@ import { SearchResultListComponent } from './search-result-list.component';
 
 })
 export class SearchComponent implements OnInit {
-  flavors: string[] = [];
-  flavorsFetched: boolean = false;
+  flavors: string[];
+  roasts: any[];
+  palette: string[];
 
-  constructor(private _roastService: RoastService) {}
+  constructor(private _roastService: RoastService) {
+      this.flavors = [];
+      this.palette = [];
+      this.roasts = [];
+    }
 
   ngOnInit() {
     this.getFlavors();
+    // this.getRoasts();
   }
 
-    getFlavors() {
-      var that = this;
-      that._roastService.getFlavors().then(function(data){
-        data.forEach(function (element, index) {
-          that.flavors.push(element.name);
-        })
-        that.flavorsFetched = true;
-      });
-    }
+  getFlavors() {
+    var that = this;
+    that._roastService.getFlavors().then(function(data){
+      that.flavors = Object.keys(data).map(key => {return data[key]});
+    });
+  }
 
+  getRoasts() {
+    var that = this;
+      this._roastService.getRoasts(this.flavors).then(function(data) {
+        that.roasts = data;
+    });
+  }
 
 }
