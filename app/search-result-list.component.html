@@ -1,6 +1,6 @@
 <div class="homepageRight">
   <h1>Roasts</h1>
-  <ul>
+  <ul *ngIf="roasts.length > 0">
     <li *ngFor="#roast of roasts">
       <p>
         {{roast.name}}
