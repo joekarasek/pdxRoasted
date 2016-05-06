@@ -17,7 +17,7 @@ export class SearchResultListComponent implements OnInit {
     private _roastService: RoastService)
     {
       this.roasts = [];
-      this.flavors = [];
+      this.flavors = ["honey"];
     }
 
   ngOnInit() {
@@ -28,6 +28,7 @@ export class SearchResultListComponent implements OnInit {
     var that = this;
       this._roastService.getRoasts(this.flavors).then(function(data) {
         that.roasts = data;
+        console.log(that.roasts);
     });
   }
 
