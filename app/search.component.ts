@@ -37,6 +37,10 @@ export class SearchComponent implements OnInit {
   }
 
   getRoasts() {
+    if(this.palette.length === 0) {
+      this.roasts = [];
+      return;
+    }
     var that = this;
       this._roastService.getRoasts(this.palette).then(function(data) {
         that.roasts = data;

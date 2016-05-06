@@ -1,5 +1,6 @@
 import { Injectable } from 'angular2/core';
 
+
 @Injectable()
 export class RoastService {
   public flavors = new Firebase('https://pdxroasted.firebaseio.com/flavors');
@@ -53,7 +54,7 @@ export class RoastService {
             }
           })
           return allRoasts;
-        })
+        });
     }
   }
 

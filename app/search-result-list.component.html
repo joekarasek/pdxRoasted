@@ -1,5 +1,8 @@
 <div class="homepageRight">
   <h1>Roasts</h1>
+  <h2 *ngIf="roasts.length === 0">
+    No matches
+  </h2>
   <ul *ngIf="roasts.length > 0">
     <li *ngFor="#roast of roasts">
       <p>
