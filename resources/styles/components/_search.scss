@@ -10,9 +10,25 @@
     h1 {
       @include textFormat(45px, lighter, $l-spacing: 3px);
     }
+    h3 {
+      @include textFormat($weight: lighter, $l-height: 1.2);
+    }
   }
   .search {
     width: 90%;
+        margin: 3%;
+    .flavorDropdown {
+      border: 1px solid transparent;
+      height: 30px;
+      width: 45%;
+      border-radius: 0%;
+      @include textFormat(15px, lighter, $primaryBlue, 1px);
+      text-transform: lowercase;
+      background: $cream;
+      &:focus {
+        outline: none;
+      }
+    }
   }
 }
 

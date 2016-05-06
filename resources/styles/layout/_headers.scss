@@ -8,8 +8,9 @@
       list-style-type: none;
       @include flexbox ($justify: space-around);
       a {
-        @include textFormat(16px, $color: $cream);
+        @include textFormat(16px, lighter, $color: $cream, $l-spacing: 1px);
         text-decoration: none;
+        text-transform: lowercase;
       }
     }
   }

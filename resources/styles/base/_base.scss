@@ -12,6 +12,12 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+button {
+  &:focus {
+    outline: none;
+  }
+}
+
 // .pageWrapper {
 //   @include flexbox();
 // }
