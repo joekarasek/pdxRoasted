@@ -15,7 +15,8 @@
         </select>
         <button type="submit">Add</button>
       </form>
+      <button (click)="getRoasts()">Get Roasts</button>
     </div>
   </div>
-  <search-result-list></search-result-list>
+  <search-result-list [roasts]="roasts"></search-result-list>
 </div>
