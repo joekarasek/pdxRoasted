@@ -10,10 +10,11 @@ import { SearchResultListComponent } from './search-result-list.component';
 @Component({
   selector: 'search',
   templateUrl: 'app/search.component.html',
-
+  directives: [SearchResultListComponent]
 })
 export class SearchComponent implements OnInit {
   flavors: string[];
+  flavor: string;
   roasts: any[];
   palette: string[];
 
@@ -21,11 +22,11 @@ export class SearchComponent implements OnInit {
       this.flavors = [];
       this.palette = [];
       this.roasts = [];
+      this.flavor = "";
     }
 
   ngOnInit() {
     this.getFlavors();
-    // this.getRoasts();
   }
 
   getFlavors() {
@@ -37,9 +38,15 @@ export class SearchComponent implements OnInit {
 
   getRoasts() {
     var that = this;
-      this._roastService.getRoasts(this.flavors).then(function(data) {
+      this._roastService.getRoasts(this.palette).then(function(data) {
         that.roasts = data;
     });
+  }
+
+
+  addToPalette() {
+    var flavor = this.flavor.toLowerCase();
+    this.palette.push(flavor);
   }
 
 }

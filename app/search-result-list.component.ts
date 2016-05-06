@@ -1,35 +1,11 @@
-import { Component, OnInit } from 'angular2/core';
-import { Router } from 'angular2/router';
-import { RoastService } from './roast.service';
-
-import { Roast } from './roast.model';
+import { Component } from 'angular2/core';
 
 @Component({
   selector: 'search-result-list',
+  inputs: ['roasts'],
   templateUrl: 'app/search-result-list.component.html'
 })
-
-export class SearchResultListComponent implements OnInit {
+export class SearchResultListComponent {
   roasts: any[];
-  flavors: string[];
-
-  constructor(
-    private _roastService: RoastService)
-    {
-      this.roasts = [];
-      this.flavors = ["honey"];
-    }
-
-  ngOnInit() {
-    this.getRoasts();
-  }
-
-  getRoasts() {
-    var that = this;
-      this._roastService.getRoasts(this.flavors).then(function(data) {
-        that.roasts = data;
-        console.log(that.roasts);
-    });
-  }
 
 }
