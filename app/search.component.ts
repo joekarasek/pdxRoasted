@@ -44,6 +44,14 @@ export class SearchComponent implements OnInit {
   }
 
 
+
+  removeFromPalette(flavToRemove) {
+    var i = this.palette.indexOf(flavToRemove);
+    this.palette.splice(i, 1);
+    this.getRoasts();
+  }
+
+
   addToPalette() {
     var flavor = this.flavor.toLowerCase();
     this.palette.push(flavor);

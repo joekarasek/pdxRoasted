@@ -23,7 +23,7 @@
         <ul>
           <li *ngFor="#pal of palette">
             {{pal}}
-            <button (click)="removeFlavor(pal)">X</button>
+            <button (click)="removeFromPalette(pal)">X</button>
           </li>
         </ul>
         <button (click)="getRoasts()">Get Roasts</button>
