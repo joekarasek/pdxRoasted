@@ -47,6 +47,7 @@ export class SearchComponent implements OnInit {
   addToPalette() {
     this.palette.push(this.flavor);
     console.log(this.flavor);
+    console.log(this.palette);
   }
 
 }
