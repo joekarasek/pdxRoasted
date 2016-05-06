@@ -18,14 +18,14 @@ export class SearchComponent implements OnInit {
   palette: string[];
 
   constructor(private _roastService: RoastService) {
-      this.flavors = ["honey"];
+      this.flavors = [];
       this.palette = [];
       this.roasts = [];
     }
 
   ngOnInit() {
     this.getFlavors();
-    this.getRoasts();
+    // this.getRoasts();
   }
 
   getFlavors() {
@@ -39,7 +39,6 @@ export class SearchComponent implements OnInit {
     var that = this;
       this._roastService.getRoasts(this.flavors).then(function(data) {
         that.roasts = data;
-        // console.log(that.roasts);
     });
   }
 

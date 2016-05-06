@@ -11,21 +11,23 @@ import { Roast } from './roast.model';
 
 export class SearchResultListComponent implements OnInit {
   roasts: any[];
+  flavors: string[];
 
   constructor(
     private _roastService: RoastService)
     {
       this.roasts = [];
+      this.flavors = [];
     }
 
   ngOnInit() {
-    this.getAllRoasts();
+    this.getRoasts();
   }
 
-  getAllRoasts() {
+  getRoasts() {
     var that = this;
-    that._roastService.getAllRoasts().then(function(data){
-      that.roasts = Object.keys(data).map(key => {return data[key]});
+      this._roastService.getRoasts(this.flavors).then(function(data) {
+        that.roasts = data;
     });
   }
 

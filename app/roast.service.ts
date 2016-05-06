@@ -34,7 +34,6 @@ export class RoastService {
           })
           return allRoasts;
         })
-        break;
       case 2:
         return this.roasts.orderByChild("flavors/"+flav1).equalTo(true).once('value').then(function(roasts) {
           console.log("Two Flavor");
@@ -45,7 +44,6 @@ export class RoastService {
           });
           return allRoasts;
         });
-        break
       case 3:
         return this.roasts.orderByChild("flavors/"+flav1).equalTo(true).once('value').then(function(roasts) {
           console.log("Three Flavor");
@@ -56,7 +54,6 @@ export class RoastService {
           })
           return allRoasts;
         })
-        break
     }
   }
 

@@ -8,7 +8,8 @@
         "flavors": {
           "honeydew": true,
           "pineapple": true,
-          "cola": true
+          "cola": true,
+          "honey": true
         },
         "description": "We overheard someone from our coffee team describe this one like a “pancake breakfast,” warm and buttery with maple syrup sweetness. Quickly becoming a staff favorite."
       },
@@ -33,7 +34,8 @@
           "honey": true,
           "fujiapple": true,
           "vanilla": true,
-          "chocolate": true
+          "chocolate": true,
+          "cinnamon": true
           },
         "description": "The warm tartness of Fuji apple is balanced by sweet chocolate and vanilla spice."
       }
