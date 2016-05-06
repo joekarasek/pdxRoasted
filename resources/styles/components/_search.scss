@@ -5,6 +5,13 @@
   height: 100vh;
   @include flexbox($justify: center, $direction: column, $align:center);
   background: $primaryBlue;
+  .logo {
+    border: 1px solid white;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    margin-bottom: 5%;
+  }
   .logoText {
     width: 90%;
     h1 {
@@ -33,6 +40,7 @@
 }
 
 .homepageRight {
+  @include textFormat($color: $primaryBlue);
   background-image: linear-gradient(rgba($cream, 0.45),
     rgba($cream, 0.45)),url("#{$path-img}/beans.jpg");
   width: 50%;

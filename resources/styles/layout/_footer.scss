@@ -1,0 +1,9 @@
+.footer {
+  position: relative;
+  bottom: 0%;
+  p {
+    @include textFormat(12px, $l-spacing: 1px);
+    text-transform: uppercase;
+    opacity: .7;
+  }
+}
