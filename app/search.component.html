@@ -15,7 +15,18 @@
         </select>
         <button type="submit">Add</button>
       </form>
-      <button (click)="getRoasts()">Get Roasts</button>
+      <h3>My flavor palette</h3>
+      <div *ngIf="palette.length == 0">
+        <h4>No flavors - try adding some!</h4>
+      </div>
+      <div *ngIf="palette.length > 0">
+        <ul>
+          <li *ngFor="#pal of palette">
+            {{pal}}
+          </li>
+        </ul>
+        <button (click)="getRoasts()">Get Roasts</button>
+      </div>
     </div>
   </div>
   <search-result-list [roasts]="roasts"></search-result-list>

@@ -40,15 +40,13 @@ export class SearchComponent implements OnInit {
     var that = this;
       this._roastService.getRoasts(this.palette).then(function(data) {
         that.roasts = data;
-        console.log(data);
     });
   }
+
 
   addToPalette() {
     var flavor = this.flavor.toLowerCase();
     this.palette.push(flavor);
-    console.log(this.flavor);
-    console.log(this.palette);
   }
 
 }
