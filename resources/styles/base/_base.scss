@@ -1,0 +1,28 @@
+html {
+  background-color: white;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+button {
+  &:focus {
+    outline: none;
+  }
+}
+
+// .contentwrapper {
+//   border: 1px solid cyan;
+//   overflow: auto;
+// }
+
+// .pageWrapper {
+//   @include flexbox();
+// }

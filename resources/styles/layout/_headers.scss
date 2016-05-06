@@ -1,0 +1,21 @@
+// This is the header that appears on all pages //
+
+.header {
+  width: 50%;
+  position: absolute;
+  nav {
+    ul {
+      margin-top: 5%;
+      display: flex;
+      list-style-type: none;
+      @include flexbox ($justify: space-around);
+      a {
+        @include textFormat(16px, lighter, $color: $cream, $l-spacing: 1px);
+        text-decoration: none;
+        text-transform: lowercase;
+      }
+    }
+  }
+}
+
+//end all page header //

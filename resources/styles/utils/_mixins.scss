@@ -1,0 +1,15 @@
+@mixin flexbox($display: flex, $justify: null, $direction: null, $align: null, $wrap: wrap) {
+  display: $display;
+  justify-content: $justify;
+  flex-direction: $direction;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+@mixin textFormat($size:null, $weight:null, $color:null, $l-spacing:null, $l-height:null) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+  letter-spacing: $l-spacing;
+  line-height: $l-height;
+}
