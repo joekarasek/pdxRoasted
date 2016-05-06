@@ -1,16 +1,25 @@
-<h1>{{site_id}}</h1>
-{{tag_line}}
-<nav>
-  <ul>
-    <li>
-      <a [routerLink]="['Home']">Home</a>
-    </li>
-    <li>
-      <a [routerLink]="['About']">About</a>
-    </li>
-    <li>
-      <a [routerLink]="['Contact']">Contact</a>
-    </li>
-  </ul>
-</nav>
-<router-outlet></router-outlet>
+<div class="pageWrapper">
+  <div class="header">
+    <nav>
+      <div class="navIcon">
+        <div class="iconbar"></div>
+        <div class="iconbar"></div>
+        <div class="iconbar"></div>
+      </div>
+      <div class="mainNav">
+        <ul>
+          <li>
+            <a [routerLink]="['Home']">Home</a>
+          </li>
+          <li>
+            <a [routerLink]="['About']">About</a>
+          </li>
+          <li>
+            <a [routerLink]="['Contact']">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <router-outlet></router-outlet>
+</div>

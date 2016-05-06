@@ -1,0 +1,50 @@
+.homepageLeft {
+  color: $cream;
+  width: 50%;
+  float: left;
+  height: 100vh;
+  @include flexbox($justify: center, $direction: column, $align:center);
+  background: $primaryBlue;
+  .logo {
+    border: 1px solid white;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    margin-bottom: 5%;
+  }
+  .logoText {
+    width: 90%;
+    h1 {
+      @include textFormat(45px, lighter, $l-spacing: 3px);
+    }
+    h3 {
+      @include textFormat($weight: lighter, $l-height: 1.2);
+    }
+  }
+  .search {
+    width: 90%;
+        margin: 3%;
+    .flavorDropdown {
+      border: 1px solid transparent;
+      height: 30px;
+      width: 45%;
+      border-radius: 0%;
+      @include textFormat(15px, lighter, $primaryBlue, 1px);
+      text-transform: lowercase;
+      background: $cream;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+.homepageRight {
+  @include textFormat($color: $primaryBlue);
+  background-image: linear-gradient(rgba($cream, 0.45),
+    rgba($cream, 0.45)),url("#{$path-img}/beans.jpg");
+  width: 50%;
+  float: right;
+  height: 100vh;
+  @include flexbox($justify: center, $align:center);
+}

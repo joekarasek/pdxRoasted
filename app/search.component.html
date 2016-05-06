@@ -1,10 +1,21 @@
-<p>Add a flavor to your palette</p>
-<form (ngSubmit)="addToPalette()">
-  <select [(ngModel)]="flavor">
-    <option *ngFor="#flavor of flavors" [value]="flavor.name">
-      {{flavor.name}}
-    </option>
-  </select>
-  <button type="submit">Add</button>
-</form>
-<search-result-list></search-result-list>
+<div class="contentwrapper">
+  <div class="homepageLeft">
+    <div class="logo">
+    </div>
+    <div class="logoText">
+      <h1>PDX ROASTED</h1>
+      <h3 class="tagline">You choose your flavors.<br>We'll choose your roast. </h3>
+    </div>
+    <div class="search">
+      <form (ngSubmit)="addToPalette()">
+        <select [(ngModel)]="flavor">
+          <option *ngFor="#flavor of flavors" [value]="flavor.name">
+            {{flavor.name}}
+          </option>
+        </select>
+        <button type="submit">Add</button>
+      </form>
+    </div>
+  </div>
+  <search-result-list></search-result-list>
+</div>
