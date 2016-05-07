@@ -49,7 +49,6 @@ export class SearchComponent implements OnInit, OnDestroy {
     this._roastService.updateRoasts(this.roasts);
   }
 
-
   getAllFlavors() {
     console.log("getAllFlavors on Search Component called!");
     let that = this;
