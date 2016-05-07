@@ -35,25 +35,43 @@ export class SearchComponent implements OnInit, OnDestroy {
     }
 
   ngOnInit() {
-    this.getAllFlavors();
     if(!this._paletteService.isPaletteEmpty()) {
       this.palette = this._paletteService.getPalette();
     }
-    if(!this._roastService.isRoastsEmpty()) {
-      this.roasts = this._roastService.getRoasts();
+
+    if(this._flavorService.isFlavorsEmpty()) {
+      this.flavors = this._flavorService.getFlavors();
+    } else {
+      this.getAllFlavors();
     }
+
+    if(this._roastService.isRoastsEmpty()) {
+      this.roasts = this._roastService.getRoasts();
+    } else {
+      this.getAllRoasts();
+    }
+
   }
 
   ngOnDestroy() {
     this._paletteService.updatePalette(this.palette);
     this._roastService.updateRoasts(this.roasts);
+    this._flavorService.updateFlavors(this.flavors);
   }
 
   getAllFlavors() {
     console.log("getAllFlavors on Search Component called!");
     let that = this;
-    that._flavorService.getFlavors().then(function(data){
+    that._flavorService.getAllFlavors().then(function(data){
       that.flavors = Object.keys(data).map(key => {return data[key].name});
+    });
+  }
+
+  getAllRoasts() {
+    console.log("getAllRoasts on Search Component called!");
+    let that = this;
+    that._roastService.getAllRoasts().then(function(data){
+      that.roasts = Object.keys(data).map(key => {return data[key]});
     });
   }
 
@@ -85,7 +103,7 @@ export class SearchComponent implements OnInit, OnDestroy {
           roast_flavors.push(flavor);
       }
     }
-    this._flavorService.getFlavors().then(function(flavor_data){
+    this._flavorService.getAllFlavors().then(function(flavor_data){
       roast_flavors.forEach(function(flavor) {
         if(flavor_list.indexOf(flavor_data[flavor]) === -1) {
           flavor_list.push(flavor_data[flavor].name);
@@ -118,6 +136,10 @@ export class SearchComponent implements OnInit, OnDestroy {
     this.palette.splice(i, 1);
     this.flavor = "Choose a flavor";
     this.filterRoasts();
+
+    if(this.roasts.length === 0 ) {
+      this.getAllRoasts();
+    }
   }
 
   addToPalette() {

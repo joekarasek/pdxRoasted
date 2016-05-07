@@ -9,6 +9,7 @@ export class RoastService {
   constructor() {
     this.roasts = [];
   }
+  
   getAllRoasts() {
     return this.ref.once('value').then(function(snapshot) {
       return snapshot.val();
