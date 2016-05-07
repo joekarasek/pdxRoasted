@@ -2,7 +2,7 @@ import { Injectable, OnInit } from 'angular2/core';
 
 
 @Injectable()
-export class RoastService implements OnInit {
+export class FlavorService implements OnInit {
   public ref = new Firebase('https://pdxroasted.firebaseio.com/flavors');
 
   flavors: any[];
@@ -12,9 +12,7 @@ export class RoastService implements OnInit {
   }
 
   ngOnInit() {
-    // if(this.flavors.length === 0) {
-    //   this.flavors = this.getFlavors();
-    // }
+    this.getAllFlavors();
   }
 
   getFlavors() {
@@ -24,11 +22,15 @@ export class RoastService implements OnInit {
   }
 
   getAllFlavors() {
-    console.log("getAllFlavors on Search Component called!");
+    console.log("getAllFlavors on Flavor Service called!");
     let that = this;
     this.getFlavors().then(function(data){
       that.flavors = Object.keys(data).map(key => {return data[key].name});
     });
+  }
+
+  injectFlavors() {
+    return this.flavors;
   }
 
 

@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from 'angular2/core';
 import { Router } from 'angular2/router';
 import { RoastService } from './roast.service';
 import { PaletteService } from './palette.service';
+import { FlavorService } from './flavor.service';
 
 import { Roast } from './roast.model';
 import { Flavor } from './flavor.model';
@@ -20,15 +21,19 @@ export class SearchComponent implements OnInit, OnDestroy {
   palette: string[];
   flavor_list: any[];
 
-  constructor(private _roastService: RoastService, private _paletteService: PaletteService) {
+  constructor(
+    private _roastService: RoastService,
+    private _paletteService: PaletteService,
+    private _flavorService: FlavorService) {
       this.flavors = [];
       this.palette = [];
       this.roasts = [];
-      this.flavor = "";
+      this.flavor = "Choose a flavor!";
     }
 
   ngOnInit() {
-    this.getAllFlavors();
+    // this.getAllFlavors();
+    this.injectFlavors();
     if(!this._paletteService.isPaletteEmpty()) {
       this.palette = this._paletteService.getPalette();
     }
@@ -36,6 +41,10 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this._paletteService.updatePalette(this.palette);
+  }
+
+  injectFlavors() {
+    this.flavors = this._flavorService.injectFlavors();
   }
 
   getAllFlavors() {

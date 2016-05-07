@@ -5,6 +5,7 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/route
 //        (>'-')>  Firebase Service DI  <('-'<)
 import { RoastService } from './roast.service';
 import { PaletteService } from './palette.service';
+import { FlavorService } from './flavor.service';
 //        (>'-')>  Components  <('-'<)
 import { HomeComponent } from './home.component';
 import { AboutComponent } from './about.component';
@@ -20,7 +21,8 @@ import { SearchComponent } from './search.component';
   providers: [
     ROUTER_PROVIDERS,
     RoastService,
-    PaletteService
+    PaletteService,
+    FlavorService
   ]
 })
 @RouteConfig([
