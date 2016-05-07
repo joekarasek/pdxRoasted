@@ -23,5 +23,13 @@ export class RoastService implements OnInit {
     });
   }
 
+  getAllFlavors() {
+    console.log("getAllFlavors on Search Component called!");
+    let that = this;
+    this.getFlavors().then(function(data){
+      that.flavors = Object.keys(data).map(key => {return data[key].name});
+    });
+  }
+
 
 }

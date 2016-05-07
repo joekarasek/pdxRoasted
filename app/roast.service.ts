@@ -29,7 +29,6 @@ export class RoastService {
     switch (flavors.length) {
       case 1:
         return this.roasts.orderByChild("flavors/"+flav1).equalTo(true).once('value').then(function(roasts) {
-          console.log("One Flavor");
           roasts.forEach(function(roast) {
             allRoasts.push(roast.val());
           })
@@ -37,7 +36,6 @@ export class RoastService {
         })
       case 2:
         return this.roasts.orderByChild("flavors/"+flav1).equalTo(true).once('value').then(function(roasts) {
-          console.log("Two Flavor");
           roasts.forEach(function(roast) {
             if (roast.child("flavors").child(flav2).exists()) {
                 allRoasts.push(roast.val());
@@ -47,7 +45,6 @@ export class RoastService {
         });
       case 3:
         return this.roasts.orderByChild("flavors/"+flav1).equalTo(true).once('value').then(function(roasts) {
-          console.log("Three Flavor");
           roasts.forEach(function(roast) {
             if (roast.child("flavors").child(flav2).exists() && roast.child("flavors").child(flav3).exists()) {
                 allRoasts.push(roast.val());

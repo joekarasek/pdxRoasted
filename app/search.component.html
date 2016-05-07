@@ -8,8 +8,9 @@
     </div>
     <div class="search">
         <select [(ngModel)]="flavor">
-          <option *ngFor="#flavor of flavors" [value]="flavor.name">
-            {{flavor.name}}
+          <option selected>Choose a flavor</option>
+          <option *ngFor="#flavor of flavors" [value]="flavor">
+            {{flavor}}
           </option>
         </select>
         <button (click)="addToPalette()">Add</button>
