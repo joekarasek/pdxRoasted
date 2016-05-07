@@ -64,6 +64,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   addToPalette() {
     var flavor = this.flavor.toLowerCase();
     this.palette.push(flavor);
+    this.getRoasts();
   }
 
 }
