@@ -39,10 +39,14 @@ export class SearchComponent implements OnInit, OnDestroy {
     if(!this._paletteService.isPaletteEmpty()) {
       this.palette = this._paletteService.getPalette();
     }
+    if(!this._roastService.isRoastsEmpty()) {
+      this.roasts = this._roastService.getRoasts();
+    }
   }
 
   ngOnDestroy() {
     this._paletteService.updatePalette(this.palette);
+    this._roastService.updateRoasts(this.roasts);
   }
 
 
@@ -54,7 +58,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     });
   }
 
-  getRoasts() {
+  filterRoasts() {
     console.log("getRoasts on Search Component called!");
     if(this.palette.length === 0) {
       this.roasts = [];
@@ -62,7 +66,7 @@ export class SearchComponent implements OnInit, OnDestroy {
       return;
     }
     let that = this;
-      this._roastService.getRoasts(this.palette).then(function(data) {
+      this._roastService.filterRoasts(this.palette).then(function(data) {
         that.roasts = data;
         that.updateFlavorList();
     });
@@ -82,7 +86,7 @@ export class SearchComponent implements OnInit, OnDestroy {
           roast_flavors.push(flavor);
       }
     }
-    this._roastService.getFlavors().then(function(flavor_data){
+    this._flavorService.getFlavors().then(function(flavor_data){
       roast_flavors.forEach(function(flavor) {
         if(flavor_list.indexOf(flavor_data[flavor]) === -1) {
           flavor_list.push(flavor_data[flavor].name);
@@ -114,7 +118,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     let i = this.palette.indexOf(flavToRemove);
     this.palette.splice(i, 1);
     this.flavor = "Choose a flavor";
-    this.getRoasts();
+    this.filterRoasts();
   }
 
   addToPalette() {
@@ -122,7 +126,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     let flavor = this.flavor.toLowerCase();
     console.log(flavor);
     this.palette.push(flavor);
-    this.getRoasts();
+    this.filterRoasts();
   }
 
 }
