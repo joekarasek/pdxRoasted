@@ -6,6 +6,7 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/route
 import { RoastService } from './roast.service';
 import { PaletteService } from './palette.service';
 import { FlavorService } from './flavor.service';
+import { UtilsService } from './utils.service';
 //        (>'-')>  Components  <('-'<)
 import { HomeComponent } from './home.component';
 import { AboutComponent } from './about.component';
@@ -22,7 +23,8 @@ import { SearchComponent } from './search.component';
     ROUTER_PROVIDERS,
     RoastService,
     PaletteService,
-    FlavorService
+    FlavorService,
+    UtilsService
   ]
 })
 @RouteConfig([

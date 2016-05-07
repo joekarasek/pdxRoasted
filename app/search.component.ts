@@ -1,8 +1,10 @@
 import { Component, OnInit, OnDestroy } from 'angular2/core';
 import { Router } from 'angular2/router';
+
 import { RoastService } from './roast.service';
 import { PaletteService } from './palette.service';
 import { FlavorService } from './flavor.service';
+import { UtilsService } from './utils.service';
 
 import { Roast } from './roast.model';
 import { Flavor } from './flavor.model';
@@ -24,7 +26,8 @@ export class SearchComponent implements OnInit, OnDestroy {
   constructor(
     private _roastService: RoastService,
     private _paletteService: PaletteService,
-    private _flavorService: FlavorService) {
+    private _flavorService: FlavorService,
+    private _utilsService: UtilsService) {
       this.flavors = [];
       this.palette = [];
       this.roasts = [];
@@ -87,28 +90,28 @@ export class SearchComponent implements OnInit, OnDestroy {
       })
       return flavor_list;
     }).then(function(flavor_list) {
-      let unique = that.filterUnique(flavor_list);
+      let unique = that._utilsService.filterUnique(flavor_list);
       let no_pal = that.stripPaletteFlavors(unique);
       that.flavors = no_pal;
       that.flavor = "";
     });
   }
 
-  filterUnique(a) {
-    console.log("filterUnique on Search Component called!");
-    let seen = {};
-    let out = [];
-    let len = a.length;
-    let j = 0;
-    for(var i = 0; i < len; i++) {
-         var item = a[i];
-         if(seen[item] !== 1) {
-               seen[item] = 1;
-               out[j++] = item;
-         }
-    }
-    return out;
-  }
+  // filterUnique(a) {
+  //   console.log("filterUnique on Search Component called!");
+  //   let seen = {};
+  //   let out = [];
+  //   let len = a.length;
+  //   let j = 0;
+  //   for(var i = 0; i < len; i++) {
+  //        var item = a[i];
+  //        if(seen[item] !== 1) {
+  //              seen[item] = 1;
+  //              out[j++] = item;
+  //        }
+  //   }
+  //   return out;
+  // }
 
   stripPaletteFlavors(a) {
     console.log("stripPaletteFlavors on Search Component called!");
@@ -126,6 +129,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     console.log("removeFromPalette on Search Component called!");
     let i = this.palette.indexOf(flavToRemove);
     this.palette.splice(i, 1);
+    this.flavor = "Choose a flavor";
     this.getRoasts();
   }
 

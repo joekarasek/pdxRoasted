@@ -1,6 +1,5 @@
 import { Injectable } from 'angular2/core';
 
-
 @Injectable()
 export class FlavorService  {
   public ref = new Firebase('https://pdxroasted.firebaseio.com/flavors');
