@@ -28,12 +28,11 @@ export class SearchComponent implements OnInit, OnDestroy {
       this.flavors = [];
       this.palette = [];
       this.roasts = [];
-      this.flavor = "Choose a flavor!";
+      this.flavor = "Choose a flavor";
     }
 
   ngOnInit() {
-    // this.getAllFlavors();
-    this.injectFlavors();
+    this.getAllFlavors();
     if(!this._paletteService.isPaletteEmpty()) {
       this.palette = this._paletteService.getPalette();
     }
@@ -43,14 +42,11 @@ export class SearchComponent implements OnInit, OnDestroy {
     this._paletteService.updatePalette(this.palette);
   }
 
-  injectFlavors() {
-    this.flavors = this._flavorService.injectFlavors();
-  }
 
   getAllFlavors() {
     console.log("getAllFlavors on Search Component called!");
     let that = this;
-    that._roastService.getFlavors().then(function(data){
+    that._flavorService.getFlavors().then(function(data){
       that.flavors = Object.keys(data).map(key => {return data[key].name});
     });
   }
