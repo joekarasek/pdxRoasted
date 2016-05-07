@@ -93,25 +93,9 @@ export class SearchComponent implements OnInit, OnDestroy {
       let unique = that._utilsService.filterUnique(flavor_list);
       let no_pal = that.stripPaletteFlavors(unique);
       that.flavors = no_pal;
-      that.flavor = "";
+      that.flavor = "Choose a flavor";
     });
   }
-
-  // filterUnique(a) {
-  //   console.log("filterUnique on Search Component called!");
-  //   let seen = {};
-  //   let out = [];
-  //   let len = a.length;
-  //   let j = 0;
-  //   for(var i = 0; i < len; i++) {
-  //        var item = a[i];
-  //        if(seen[item] !== 1) {
-  //              seen[item] = 1;
-  //              out[j++] = item;
-  //        }
-  //   }
-  //   return out;
-  // }
 
   stripPaletteFlavors(a) {
     console.log("stripPaletteFlavors on Search Component called!");
