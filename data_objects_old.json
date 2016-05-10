@@ -1,0 +1,99 @@
+{
+  "roasts": {
+      "col-el-nevado": {
+        "name": "Colombia El Nevado",
+        "vendor": {
+          "stumptown": true
+          },
+        "flavors": {
+          "honeydew": true,
+          "pineapple": true,
+          "cola": true,
+          "honey": true
+        },
+        "description": "We overheard someone from our coffee team describe this one like a “pancake breakfast,” warm and buttery with maple syrup sweetness. Quickly becoming a staff favorite."
+      },
+      "col-el-jordan": {
+        "name": "Colombia El Jordan",
+        "vendor": {
+          "stumptown": true
+          },
+        "flavors": {
+          "tangerine": true,
+           "cinnamon": true,
+            "honey": true
+          },
+        "description": "A warm and sweet cup that is well-structured. Notes of honey, vanilla, citrus and apple set the bar for this idyllic Colombian coffee."
+      },
+      "per-chirinos": {
+        "name": "Peru Chirinos",
+        "vendor": {
+          "stumptown": true
+          },
+        "flavors": {
+          "honey": true,
+          "fujiapple": true,
+          "vanilla": true,
+          "chocolate": true,
+          "cinnamon": true
+          },
+        "description": "The warm tartness of Fuji apple is balanced by sweet chocolate and vanilla spice."
+      }
+  },
+  "flavors": {
+      "tangerine": {
+        "name": "Tangerine",
+        "roasts": {
+          "col-el-jordan": true
+        }
+      },
+    "cinnamon": {
+        "name": "Cinnamon",
+        "roasts": {
+          "col-el-jordan": true
+        }
+      },
+    "honey": {
+      "name": "Honey",
+      "roasts": {
+        "col-el-jordan": true
+      }
+    },
+    "honeydew": {
+      "name": "Honeydew",
+      "roasts": {
+        "col-el-nevado": true
+      }
+    },
+    "pineapple": {
+      "name": "Pineapple",
+      "roasts": {
+        "col-el-nevado": true
+      }
+    },
+    "cola": {
+      "name": "Cola",
+      "roasts": {
+        "col-el-nevado": true
+      }
+    },
+    "fujiapple": {
+      "name": "Fuji Apple",
+      "roasts": {
+        "per-chirinos": true
+      }
+    },
+    "vanilla": {
+      "name": "Vanilla",
+      "roasts": {
+        "per-chirinos": true
+      }
+    },
+    "chocolate": {
+      "name": "Chocolate",
+      "roasts": {
+        "per-chirinos": true
+      }
+    }
+  }
+}

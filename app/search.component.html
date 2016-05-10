@@ -4,10 +4,12 @@
     </div>
     <div class="logoText">
       <h1>PDX ROASTED</h1>
-      <h3 class="tagline">You choose your flavors.<br>We'll choose your roast. </h3>
+      <h3 class="tagline">Find the best Portland roasted coffee for you.<br>Browse the entire collection, or filter by flavor.</h3>
+      <button (click)="seeAllRoasts()">See all roasts</button>
+      <button id="flavorFilter" (click)="filterByFlavor()">Filter by flavor</button>
     </div>
-    <div class="search">
-      <div *ngIf="roasts.length > 1 || roasts.length === 0">
+    <div class="search" *ngIf="filter_by">
+      <div *ngIf="roasts.length !== 1">
         <select [(ngModel)]="flavor">
           <option selected>Choose a flavor</option>
           <option *ngFor="#flavor of flavors" [value]="flavor">
