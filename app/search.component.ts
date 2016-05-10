@@ -152,6 +152,9 @@ export class SearchComponent implements OnInit, OnDestroy {
   addToPalette() {
     console.log("addToPalette on Search Component called!");
     let flavor = this.flavor.toLowerCase();
+    if (flavor === 'choose a flavor') {
+      return;
+    }
     console.log(flavor);
     this.palette.push(flavor);
     this.filterRoasts();
