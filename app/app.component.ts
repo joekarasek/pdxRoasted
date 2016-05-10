@@ -1,14 +1,10 @@
 //        (>'-')>  ng2 Core  <('-'<)
-import {bootstrap}    from 'angular2/platform/browser';
 import { Component, OnInit, provide } from 'angular2/core';
 //        (>'-')>  ng2 Router  <('-'<)
 import {
   RouteConfig,
   ROUTER_DIRECTIVES,
-  ROUTER_PROVIDERS,
-  Location,
-  LocationStrategy,
-  HashLocationStrategy
+  Location
  } from 'angular2/router';
 //        (>'-')>  Firebase Service DI  <('-'<)
 import { RoastService } from './roast.service';
@@ -28,7 +24,6 @@ import { SearchComponent } from './search.component';
     ROUTER_DIRECTIVES
   ],
   providers: [
-    // ROUTER_PROVIDERS,
     RoastService,
     PaletteService,
     FlavorService,
