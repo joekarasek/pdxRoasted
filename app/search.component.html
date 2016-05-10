@@ -7,14 +7,15 @@
       <h3 class="tagline">You choose your flavors.<br>We'll choose your roast. </h3>
     </div>
     <div class="search">
-      <form (ngSubmit)="addToPalette()">
+      <div *ngIf="roasts.length > 1 || roasts.length === 0">
         <select [(ngModel)]="flavor">
-          <option *ngFor="#flavor of flavors" [value]="flavor.name">
-            {{flavor.name}}
+          <option selected>Choose a flavor</option>
+          <option *ngFor="#flavor of flavors" [value]="flavor">
+            {{flavor}}
           </option>
         </select>
-        <button type="submit">Add</button>
-      </form>
+        <button (click)="addToPalette()">Add</button>
+      </div>
       <h3>My flavor palette</h3>
       <div *ngIf="palette.length == 0">
         <h4>No flavors - try adding some!</h4>
@@ -26,7 +27,6 @@
             <button (click)="removeFromPalette(pal)">X</button>
           </li>
         </ul>
-        <button (click)="getRoasts()">Get Roasts</button>
       </div>
     </div>
   </div>
