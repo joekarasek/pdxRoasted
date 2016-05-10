@@ -22,6 +22,7 @@ export class PaletteService {
   }
 
   updatePalette(palette) {
+    console.log("updatePalette on Palette Service called!")
     this.palette = palette;
   }
 
