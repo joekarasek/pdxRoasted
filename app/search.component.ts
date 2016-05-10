@@ -83,14 +83,17 @@ export class SearchComponent implements OnInit, OnDestroy {
   }
 
   filterRoasts() {
-    console.log("getRoasts on Search Component called!");
-    if(this.palette.length === 0) {
+    console.log("filterRoasts on Search Component called!");
+    if(this.palette.length === 0) { // If no roasts exist, get all of them
       this.roasts = [];
       this.getAllFlavors();
       return;
     }
+
     let that = this;
-      this._roastService.filterRoasts(this.palette).then(function(data) {
+    let palette = this.palette.map(this._utilsService.formatFlavor);
+    console.log(palette);
+      this._roastService.filterRoasts(palette).then(function(data) {
         that.roasts = data;
         that.updateFlavorList();
     });
@@ -151,13 +154,14 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   addToPalette() {
     console.log("addToPalette on Search Component called!");
-    let flavor = this.flavor.toLowerCase();
-    if (flavor === 'choose a flavor') {
+    if (this.flavor === 'Choose a flavor') {
       return;
     }
-    console.log(flavor);
-    this.palette.push(flavor);
+    console.log("Falvor added: " + this.flavor);
+    this.palette.push(this.flavor);
     this.filterRoasts();
   }
+
+
 
 }

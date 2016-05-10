@@ -18,5 +18,10 @@ export class UtilsService  {
     return out;
   }
 
+  formatFlavor(flavor) {
+    var flav_no_space = flavor.replace(/\s+/g, ''); // remove all whitespace
+    var flav_lwr = flav_no_space.toLowerCase();
+    return flav_lwr;
+  }
 
 }
