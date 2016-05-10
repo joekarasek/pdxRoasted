@@ -14,7 +14,11 @@ export class PaletteService {
   }
 
   isPaletteEmpty() {
-    this.palette.length === 0 ? true : false;
+    console.log("isPletteEmpty called on Palette Service!");
+    var answer;
+    this.palette.length === 0 ? answer = true : answer = false;
+    console.log("The answer is: "+answer);
+    return answer;
   }
 
   updatePalette(palette) {

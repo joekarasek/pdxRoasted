@@ -10,11 +10,17 @@ export class FlavorService  {
   }
 
   isFlavorsEmpty() {
-    this.flavors.length === 0 ? true : false;
+    console.log("isFlavorsEmpty called on Flavor Service!");
+    var answer;
+    this.flavors.length === 0 ? answer = true : answer = false;
+    console.log("The answer is: "+answer);
+    return answer;
   }
 
   updateFlavors(flavors) {
+    console.log("updateFlavors on Flavor Service called!");
     this.flavors = flavors;
+    console.log(this.flavors);
   }
 
   getFlavors() {

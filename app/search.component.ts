@@ -35,20 +35,27 @@ export class SearchComponent implements OnInit, OnDestroy {
     }
 
   ngOnInit() {
-    if(!this._paletteService.isPaletteEmpty()) {
+    if(this._paletteService.isPaletteEmpty()) {
+      console.log("Palette was empty!");
+    } else {
       this.palette = this._paletteService.getPalette();
+      console.log("Palette being set to: " + this.palette);
     }
 
     if(this._flavorService.isFlavorsEmpty()) {
-      this.flavors = this._flavorService.getFlavors();
-    } else {
+      console.log("Flavors was empty!");
       this.getAllFlavors();
+    } else {
+      this.flavors = this._flavorService.getFlavors();
+      console.log("Flavors being set to: " + this.flavors);
     }
 
     if(this._roastService.isRoastsEmpty()) {
-      this.roasts = this._roastService.getRoasts();
-    } else {
+      console.log("Roasts was empty!");
       this.getAllRoasts();
+    } else {
+      this.roasts = this._roastService.getRoasts();
+      console.log("Roasts being set to: " + this.roasts);
     }
 
   }

@@ -9,7 +9,7 @@ export class RoastService {
   constructor() {
     this.roasts = [];
   }
-  
+
   getAllRoasts() {
     return this.ref.once('value').then(function(snapshot) {
       return snapshot.val();
@@ -17,14 +17,21 @@ export class RoastService {
   }
 
   isRoastsEmpty() {
-    this.roasts.length === 0 ? true : false;
+    console.log("isRoastsEmpty called on Roast Service!");
+    var answer;
+    this.roasts.length === 0 ? answer =  true : answer =  false;
+    console.log("The answer is: " + answer);
+    return answer;
   }
 
   updateRoasts(roasts) {
+    console.log("updateRoasts on Roast Service called!");
     this.roasts = roasts;
+    console.log(this.roasts);
   }
 
   getRoasts() {
+    console.log("getRoasts on Roast Service called!")
     return this.roasts;
   }
 
