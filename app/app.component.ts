@@ -34,8 +34,8 @@ import { SearchComponent } from './search.component';
   {
     path: '/',
     name: 'Home',
-    component: HomeComponent,
-    useAsDefault: true
+    component: HomeComponent
+    // useAsDefault: true
   },
   {
     path: '/find_coffee',
