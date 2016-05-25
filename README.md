@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/joekarasek/pdxRoasted.svg?branch=dev)](https://travis-ci.org/joekarasek/pdxRoasted)
+
 # PDX Roasted
 ## All things coffee + Angular2 - Portland, OR
 ### Coming May, 2016
@@ -31,5 +33,3 @@ The version of Node installed on your machine, or the npm version, may be out of
 Try running `npm install` again!
 
 If you have any problems please get hold of [Jason](http://www.jason-awbrey.com/contact), thanks.
-
-

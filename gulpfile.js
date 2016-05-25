@@ -64,3 +64,9 @@ gulp.task('prod', ['ts'], function(){
     .pipe(autoprefixer())
     .pipe(gulp.dest('./build/css'));
 });
+
+gulp.task('build', [
+  'ts',
+  'sassBuild',
+  'htmlBuild'
+])
